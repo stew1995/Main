@@ -1,0 +1,45 @@
+body {
+  background: #e0f7fa;
+}
+
+.outercontainor {
+  background: white;
+  height: 875px;
+  position: relative;
+}
+
+.messageinputcontainor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-left: 5%;
+  background: #D7CCC8;
+  height: 65px;
+}
+
+.messageinput {
+  position: absolute;
+  left: 0;
+  width: 80%;
+
+}
+.input-field {
+  margin: 10px;
+}
+
+#messageinput {
+  background: white;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.sendButton {
+  float: right;
+  width: 20%;
+  margin: 15px;
+}
+
+.chatcontentcontainor {
+  
+}
