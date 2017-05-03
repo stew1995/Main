@@ -41,5 +41,10 @@ body {
 }
 
 .chatcontentcontainor {
-  
+
+}
+
+.chatcontent {
+  overflow-y: scroll;
+  height: 750px;
 }
