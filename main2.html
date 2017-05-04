@@ -11,10 +11,26 @@
 
 
   <div class="row">
-      <div class="col s6 offset-s3 z-depth-4 outercontainor">
+    <div class="col s3 test">
+      <p>
+        Photos
+      </p>
+    </div>
+      <div class="col s6 z-depth-4 outercontainor">
         <div class="chatcontentcontainor">
           <div class="chatcontent" id="chatLayout">
-
+            <div class="messagecontainor">
+              <div class="cardview teal z-depth-3">
+                <div class="sender">
+                  <span class="white-text">Sender</span><span class="right white-text">Timestamp</span>
+                </div>
+                <div class="messagecontent">
+                  <span>
+                    HI
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -22,16 +38,35 @@
           <div class="messageinput">
             <form>
               <div class="input-field">
-                <input id="messageinput" type="email" class="validate">
+                <input id="messageinput" type="text" class="validate">
               </div>
             </form>
           </div>
+          <i class="small material-icons sendimage white-text">insert_photo</i>
+
           <a class="waves-effect waves-light btn sendButton"><i class="material-icons right">send</i>Send</a>
         </div>
-
       </div>
-    </div>
 
+      <div class="col s3 test">
+        <p>
+          Events - possiblily linked to Google Calender
+        </p>
+      </div>
+
+
+    </div>
+    <button class="testbutton">Hello</button>
+    <!-- Element Showed -->
+      <a id="menu" class="waves-effect waves-light btn btn-floating" ><i class="material-icons">menu</i></a>
+
+      <!-- Tap Target Structure -->
+      <div class="tap-target" data-activates="menu">
+        <div class="tap-target-content">
+          <h5>Title</h5>
+          <p>A bunch of text</p>
+        </div>
+      </div>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>

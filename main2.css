@@ -21,7 +21,7 @@ body {
 .messageinput {
   position: absolute;
   left: 0;
-  width: 80%;
+  width: 75%;
 
 }
 .input-field {
@@ -48,3 +48,68 @@ body {
   overflow-y: scroll;
   height: 750px;
 }
+
+/*Message*/
+
+.messagecontainor {
+  margin: 10px 5px;
+}
+
+.cardview {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 1px;
+
+  border-radius: 5px;
+}
+
+.sender {
+  border-bottom: 1px white solid;
+  width: 100%;
+}
+
+.messagecontent {
+  background: white;
+  border-radius: 5px;
+  margin: 2.5px 0;
+}
+
+.sendimage {
+  position: absolute;
+  right: 0;
+  margin-right: 22.5%;
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
