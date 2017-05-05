@@ -6,8 +6,8 @@
       if (user) {
         //user sign in
         //slow change
-        $("#logincontainor").hide();
-        $("#body").load("main2.html");
+      //  $("#logincontainor").hide();
+       //$("#body").load("main2.html");
       } else {
 
       }

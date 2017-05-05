@@ -83,7 +83,14 @@ body {
 
 
 
+/*upload image*/
 
+input #upload-containor {
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+  z-index: -1;
+}
 
 
 

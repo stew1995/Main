@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
   <title>Page Two</title>
-  <link href="main2.css" rel="stylesheet">
+  <link href="css/main2.css" rel="stylesheet">
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
@@ -12,9 +12,11 @@
 
   <div class="row">
     <div class="col s3 test">
-      <p>
-        Photos
-      </p>
+      <div id="imageContainor">
+        <p>
+          Hello
+        </p>
+      </div>
     </div>
       <div class="col s6 z-depth-4 outercontainor">
         <div class="chatcontentcontainor">
@@ -28,6 +30,7 @@
                   <span>
                     HI
                   </span>
+
                 </div>
               </div>
             </div>
@@ -42,7 +45,7 @@
               </div>
             </form>
           </div>
-          <i class="small material-icons sendimage white-text">insert_photo</i>
+          <i class="small material-icons sendimage white-text" id="uploadFileImage">insert_photo</i>
 
           <a class="waves-effect waves-light btn sendButton"><i class="material-icons right">send</i>Send</a>
         </div>
@@ -56,18 +59,13 @@
 
 
     </div>
-    <button class="testbutton">Hello</button>
-    <!-- Element Showed -->
-      <a id="menu" class="waves-effect waves-light btn btn-floating" ><i class="material-icons">menu</i></a>
+    <!--Put zindex a -10000-->
+    <label class="upload-containor">
+      Upload File
+      <input type="file" class="upload-containor" id="file" />
+    </label>
 
-      <!-- Tap Target Structure -->
-      <div class="tap-target" data-activates="menu">
-        <div class="tap-target-content">
-          <h5>Title</h5>
-          <p>A bunch of text</p>
-        </div>
-      </div>
-
+    <button type="submit" class="btn-primary" id="uploadFileButton"> submit</button>
 
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
@@ -85,6 +83,7 @@
       firebase.initializeApp(config);
     </script>
   <script src="js/chat.js"></script>
+  <script src="js/Photos.js"></script>
     <script src="https://cdnjs.clo
 </body>
 </html>
