@@ -11,11 +11,10 @@
 
 
   <div class="row">
+    <div class="col s12"
     <div class="col s3 test">
-      <div id="imageContainor">
-        <p>
-          Hello
-        </p>
+      <div id="imageContainor2">
+
       </div>
     </div>
       <div class="col s6 z-depth-4 outercontainor">
@@ -27,9 +26,6 @@
                   <span class="white-text">Sender</span><span class="right white-text">Timestamp</span>
                 </div>
                 <div class="messagecontent">
-                  <span>
-                    HI
-                  </span>
 
                 </div>
               </div>
@@ -39,11 +35,10 @@
 
         <div class="messageinputcontainor">
           <div class="messageinput">
-            <form>
               <div class="input-field">
                 <input id="messageinput" type="text" class="validate">
               </div>
-            </form>
+
           </div>
           <i class="small material-icons sendimage white-text" id="uploadFileImage">insert_photo</i>
 
@@ -52,12 +47,24 @@
       </div>
 
       <div class="col s3 test">
-        <p>
-          Events - possiblily linked to Google Calender
-        </p>
+
       </div>
 
 
+
+    <a id="menu" class="waves-effect waves-light btn btn-floating" ><i class="material-icons">menu</i></a>
+
+    <!--events button-->
+    <div class="tap-target" data-activates="menu">
+      <div class="tap-target-content">
+        <h5>Events</h5>
+        <p>What do you want to do?</p>
+        <div class="eventButtons">
+          <a class="btn-floating btn-large waves-effect waves-light blue addEvent"><i class="material-icons">add</i></a>
+          <a class="btn-floating btn-large waves-effect waves-light green viewEvent"><i class="material-icons">view_list</i></a>
+        </div>
+
+      </div>
     </div>
     <!--Put zindex a -10000-->
     <label class="upload-containor">
@@ -66,6 +73,8 @@
     </label>
 
     <button type="submit" class="btn-primary" id="uploadFileButton"> submit</button>
+    <button type="button" href="main.html" id="noUser"></button>
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
@@ -84,6 +93,7 @@
     </script>
   <script src="js/chat.js"></script>
   <script src="js/Photos.js"></script>
-    <script src="https://cdnjs.clo
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
 </body>
 </html>

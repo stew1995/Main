@@ -1,5 +1,8 @@
+
+
 body {
   background: #e0f7fa;
+  overflow-x: hidden;
 }
 
 .outercontainor {
@@ -85,7 +88,7 @@ body {
 
 /*upload image*/
 
-input #upload-containor {
+input .upload-containor {
   width: 0.1px;
   height: 0.1px;
   position: absolute;
@@ -93,10 +96,25 @@ input #upload-containor {
 }
 
 
+#menu {
+  position: absolute;
+  right: 0;
+  margin-bottom: 100px;
+}
 
 
+/*Event*/
 
-
+.eventButtons {
+  margin: 50px;
+  width: 100%;
+}
+.addEvent {
+  margin: 0 50px;
+}
+.viewEvent {
+  margin: 0 50px;
+}
 
 
 
