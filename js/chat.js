@@ -6,23 +6,20 @@ var fileName;
 
     //Disable the scroll
     //if i want a div disabled then change the document
-    $(function() {
 
-    var $body = $(document);
-    $body.bind('scroll', function() {
-        // "Disable" the horizontal scroll.
-        if ($body.scrollLeft() !== 0) {
-            $body.scrollLeft(0);
-        }
-    });
-
-}); 
 
 $(document).ready(
     function() {
-        $("#noUser").hide();
         firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
+            if (!user) {
+
+              $("#logoutButton").click(function() {
+                firebase.auth().signOut().then(function() {
+                  $("#noUser").click();
+                }).catch(function(error) {
+                // An error happened.
+                });
+              })
                 //Hide the upload
                 $(".upload-containor").hide();
                 /*
@@ -101,7 +98,7 @@ $(document).ready(
                         Time: formatTime,
                         //Wont work as no user is signed in
                         //User : user.uid
-                        User: "Stewart",
+                        User: user,
 
 
                     });
@@ -159,7 +156,7 @@ $(document).ready(
                     }, function() {
                         // Handle successful uploads on complete
                         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-                        downloadURL = uploadTask.snapshot.downloadURL
+                        downloadURL = uploadTask.snapshot.downloadURL;
                         var time = new Date();
                         //Time format for message
                         var formatTime = time.getHours() + ":" + time.getMinutes();
@@ -201,8 +198,12 @@ $(document).ready(
 
                 }
             } else {
-                $("#noUser").click()
             }
         });
+
+
+
+
+
 
     });

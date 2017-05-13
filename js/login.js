@@ -9,7 +9,7 @@
       //  $("#logincontainor").hide();
        //$("#body").load("main2.html");
       } else {
-
+        $("#body").load("main.html");
       }
     });
 
@@ -17,8 +17,8 @@
 
 
 //Sign In User
-$(document).ready( function() {
-  $("signInButton").click(function() {
+
+  $("#signInButton").click(function() {
 
     var email = $("#email").val();
     var password = $("#password").val();
@@ -26,7 +26,7 @@ $(document).ready( function() {
     if(email != "" && password != "") {
 
 
-      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+      firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
 
 
         // Handle Errors here.
@@ -35,10 +35,15 @@ $(document).ready( function() {
         // ...
 
 
+      })
+
+      $("#body").load("main2.html", function () {
+        elm = document.createElement('script');
+        elm.src = "js/chat.js";
+        body.appendChild(elm);
       });
     }
   })
-})
 
 //Register user
 $("#registerButton").click(
@@ -57,7 +62,11 @@ $("#registerButton").click(
         var errorMessage = error.message;
         // ...
       });
-
+      $("#body").load("enterName.html", function () {
+        elm = document.createElement('script');
+        elm.src = "js/enterName.js";
+        body.appendChild(elm);
+      });
     }
 
   }
