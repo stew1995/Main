@@ -9,7 +9,7 @@
       //  $("#logincontainor").hide();
        //$("#body").load("main2.html");
       } else {
-        $("#body").load("main.html");
+      //  $("#body").load("main.html");
       }
     });
 

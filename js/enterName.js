@@ -1,13 +1,13 @@
 $(document).ready(function() {
-  var user = firebase.auth().currentUser;
+
 
 $("#enterNameButton").click(function(event) {
+  var user = firebase.auth().currentUser;
     var mRef = firebase.database().ref();
     var key = mRef.key;
-    mRef.child("Users").push().set({
+    mRef.child("Users").child(user.uid).set({
 
-        Name: $("#nameforaccount").val(),
-        id: user.uid
+        Name: $("#nameforaccount").val()
         //DO an image as profile
 
   })
