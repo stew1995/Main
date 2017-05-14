@@ -93,27 +93,36 @@ input .upload-containor {
 }
 
 
-#menu {
-  position: absolute;
-  right: 0;
-  margin-bottom: 100px;
-}
-
 
 /*Event*/
 
-.eventsMenuContainor {
-  position: relative;
 
-}
 .eventsButtons {
   position: absolute;
   top: 0;
 }
 
+.eventOptionsadd {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.eventOptionsview {
+  position: absolute;
+  top: 0px;
+  right: 90px;
+}
+
+.calender {
+padding-left: 2.5%;
+}
+
+
 
 /* Menu */
 .menuContainor {
+  position: relative;
 }
 
 #logoutButton {

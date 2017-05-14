@@ -69,7 +69,7 @@ $("#registerButton").click(
       });
       $("#body").load("enterName.html", function () {
         elm = document.createElement('script');
-        elm.src = "js/enterName.js";
+        elm.src = "js/accountName.js";
         body.appendChild(elm);
       });
     }

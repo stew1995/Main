@@ -15,25 +15,57 @@ $(document).ready(
     * Read from database chat
     */
     var root = firebase.database().ref().child("Messages");
+    var user = firebase.auth().currentUser;
 
     root.on("child_added", snap => {
-      if (snap.val().Image == null) {
-          $("#chatLayout").append("<div class='messagecontainor'><div class='cardview teal z-depth-3'>" +
-              "<div class='sender'>" +
-              "<span class='white-text'>" + snap.val().User + "</span><span class='right white-text'>" + snap.val().Time + "</span>" +
-              "</div><div class='messagecontent'><span>" + snap.val().Message + "</span></div></div></div>"
-          );
+      /*
+      first if statement determins what user is who and if it has to change the colour of the field
+      */
+      if(user.uid != snap.val().UserID) {
+        //If the user didnt send that message
+        if (snap.val().Image == null) {
+            $("#chatLayout").append("<div class='messagecontainor'><div class='cardview red z-depth-3'>" +
+                "<div class='sender'>" +
+                "<span class='white-text'>" + snap.val().User + "</span><span class='right white-text'>" + snap.val().Time + "</span>" +
+                "</div  ><div class='messagecontent'><span>" + snap.val().Message + "</span></div></div></div>"
+            );
 
 
+        } else {
+            $("#chatLayout").append("<div class='messagecontainor'><div class='cardview red z-depth-3'>" +
+                "<div class='sender'>" +
+                "<span class='white-text'>" + snap.val().User + "</span><span class='right white-text'>" + snap.val().Time + "</span>" +
+                "</div><div class='messagecontent'><span>" + snap.val().Message + "</span><div class='imageContainor'><img class='responsive-img' src='" + snap.val().Image + "'/></div></div></div>");
+
+                $("#imageContainor2").append("<img class='col s4 circle materialboxed data-caption='Test' src='" + snap.val().Image + "'/>  ");
+
+        }
       } else {
-          $("#chatLayout").append("<div class='messagecontainor'><div class='cardview teal z-depth-3'>" +
-              "<div class='sender'>" +
-              "<span class='white-text'>" + snap.val().User + "</span><span class='right white-text'>" + snap.val().Time + "</span>" +
-              "</div><div class='messagecontent'><span>" + snap.val().Message + "</span><div class='imageContainor'><img class='responsive-img' src='" + snap.val().Image + "'/></div></div></div>"
-          );
-          $("#imageContainor2").append("<img class='col s4 circle materialboxed data-caption='Test' src='" + snap.val().Image + "'/>  ");
+        //If they did send that message
+        //Need to change colour
+        if (snap.val().Image == null) {
+            $("#chatLayout").append("<div class='messagecontainor'><div class='cardview teal z-depth-3'>" +
+                "<div class='sender'>" +
+                "<span class='white-text'>" + snap.val().User + "</span><span class='right white-text'>" + snap.val().Time + "</span>" +
+                "</div><div class='messagecontent'><span>" + snap.val().Message + "</span></div></div></div>"
+            );
+
+
+        } else {
+            $("#chatLayout").append("<div class='messagecontainor'><div class='cardview teal z-depth-3'>" +
+                "<div class='sender'>" +
+                "<span class='white-text'>" + snap.val().User + "</span><span class='right white-text'>" + snap.val().Time + "</span>" +
+                "</div><div class='messagecontent'><span>" + snap.val().Message + "</span><div class='imageContainor'><img class='responsive-img' src='" + snap.val().Image + "'/></div></div></div>");
+
+                $("#imageContainor2").append("<img class='col s4 circle materialboxed data-caption='Test' src='" + snap.val().Image + "'/>  ");
+
+        }
+
 
       }
+
+
+
 
       var d = $('#chatLayout');
       d.scrollTop(d.prop("scrollHeight"));
@@ -89,7 +121,8 @@ $(document).ready(
         mRef.child("Messages").push().set({
             Message: message,
             Time: formatTime,
-            User: snapshot.val().Name
+            User: snapshot.val().Name,
+            UserID: user.uid
         });
       });
 
@@ -140,6 +173,7 @@ $(document).ready(
               //Wont work as no user is signed in
               //User : user.uid
               User: "Stewart",
+              UserID: user.uid,
               Image: downloadURL
           });
           mRef.child("Images").push().set({
