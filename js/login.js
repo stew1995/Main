@@ -7,7 +7,11 @@
         //user sign in
         //slow change
       //  $("#logincontainor").hide();
-       //$("#body").load("main2.html");
+      $("#body").load("main2.html", function () {
+        elm = document.createElement('script');
+        elm.src = "js/chat.js";
+        body.appendChild(elm);
+      });
       } else {
       //  $("#body").load("main.html");
       }
@@ -40,7 +44,7 @@
       $("#body").load("main2.html", function () {
         elm = document.createElement('script');
         elm.src = "js/chat.js";
-        body.appendChild(elm);
+        head.appendChild(elm);
       });
     }
   })
