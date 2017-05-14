@@ -50,31 +50,18 @@ $(document).ready(
       }
     });
 
-
-
-
-
-    //File Uplaod
-      $("#uploadFileButton").hide();
-
-
     $("#file").on("change", function(event) {
-      //$("#uploadFileButton").show();
       Materialize.toast('File is Uploading', 4000)
       selectedFile = event.target.files[0];
       uploadFile();
     })
-
-
-
-            }
 
     });
 
     $(document).ready(function() {
       $("#uploadFileImage").click(function(event) {
           $("#file").click();
-          $("#messageinput").val("");
+          $("#messageinput").val();
       });
     });
 
@@ -97,20 +84,16 @@ $(document).ready(
 
       //User object
       var user = firebase.auth().currentUser;
-
-      mRef.child("Messages").push().set({
-
-          Message: message,
-          Time: formatTime,
-          //Wont work as no user is signed in
-          //User : user.uid
-          User: user,
-
-
+      var userMRef = mRef.child("Users").child(user.uid);
+      userMRef.on('value', function(snapshot) {
+        mRef.child("Messages").push().set({
+            Message: message,
+            Time: formatTime,
+            User: snapshot.val().Name
+        });
       });
-    }
 
-    //Can add text to the image so store in database
+    }
 
     function uploadFile() {
       /* Act on the event */
@@ -149,6 +132,7 @@ $(document).ready(
 
           var mRef = firebase.database().ref();
           var key = mRef.key;
+          var user = firebase.auth().currentUser;
           mRef.child("Messages").push().set({
 
               Message: $("#messageinput").val(),
@@ -162,7 +146,7 @@ $(document).ready(
               Download: downloadURL,
               Caption: fileName,
               Message: $("#messageinput").val(),
-              User: "Stewart",
+              User: user.uid,
               Time: formatTime
           })
 
