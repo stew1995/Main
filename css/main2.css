@@ -131,7 +131,11 @@ padding-left: 2.5%;
 
 
 
-
+/* Map */
+#map {
+  height: 400px;
+  width: 100%;
+}
 
 
 

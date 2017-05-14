@@ -46,6 +46,10 @@
         elm = document.createElement('script');
         elm.src = "js/newchat.js";
         body.appendChild(elm);
+
+        map = document.createElement('script');
+        map.src = "js/map.js";
+        body.appendChild(map);
       });
     }
   })
