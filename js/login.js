@@ -7,11 +7,12 @@
         //user sign in
         //slow change
       //  $("#logincontainor").hide();
-      $("#body").load("main2.html", function () {
+      /*$("#body").load("main2.html", function () {
         elm = document.createElement('script');
-        elm.src = "js/chat.js";
-        body.appendChild(elm);
-      });
+        elm.src = "js/newchat.js";
+        head.appendChild(elm);
+      });*/
+
       } else {
       //  $("#body").load("main.html");
       }
@@ -43,8 +44,8 @@
 
       $("#body").load("main2.html", function () {
         elm = document.createElement('script');
-        elm.src = "js/chat.js";
-        head.appendChild(elm);
+        elm.src = "js/newchat.js";
+        body.appendChild(elm);
       });
     }
   })

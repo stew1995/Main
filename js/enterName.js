@@ -14,7 +14,7 @@ $("#enterNameButton").click(function(event) {
 
   $("#body").load("main2.html", function () {
     elm = document.createElement('script');
-    elm.src = "js/chat.js";
+    elm.src = "js/newchat.js";
     body.appendChild(elm);
   });
 });
