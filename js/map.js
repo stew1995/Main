@@ -31,7 +31,7 @@ var map, infoWindow, long1, lat1;
                     ));
 
             var user = firebase.auth().currentUser.uid;
-            var mRef = firebase.database().ref().child("Users").child(user).child("Location");
+            var mRef = firebase.database().ref().child("Locations").child(user);
             mRef.set({
               lat: position.coords.latitude,
               lng: position.coords.longitude
@@ -50,6 +50,8 @@ var map, infoWindow, long1, lat1;
           handleLocationError(false, infoWindow, map.getCenter());
         }
 
+        //Other locations
+        //GEOFIRE
 
 
 
@@ -62,6 +64,3 @@ var map, infoWindow, long1, lat1;
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-
-
-      
