@@ -44,7 +44,7 @@ $(document).ready(
         //If they did send that message
         //Need to change colour
         if (snap.val().Image == null) {
-            $("#chatLayout").append("<div class='messagecontainor'><div class='cardview teal z-depth-3'>" +
+            $("#chatLayout").append("<div class='messagecontainor'><div class='cardview grey z-depth-3'>" +
                 "<div class='sender'>" +
                 "<span class='white-text'>" + snap.val().User + "</span><span class='right white-text'>" + snap.val().Time + "</span>" +
                 "</div><div class='messagecontent'><span>" + snap.val().Message + "</span></div></div></div>"
@@ -52,7 +52,7 @@ $(document).ready(
 
 
         } else {
-            $("#chatLayout").append("<div class='messagecontainor'><div class='cardview teal z-depth-3'>" +
+            $("#chatLayout").append("<div class='messagecontainor'><div class='cardview grey z-depth-3'>" +
                 "<div class='sender'>" +
                 "<span class='white-text'>" + snap.val().User + "</span><span class='right white-text'>" + snap.val().Time + "</span>" +
                 "</div><div class='messagecontent'><span>" + snap.val().Message + "</span><div class='imageContainor'><img class='responsive-img' src='" + snap.val().Image + "'/></div></div></div>");
@@ -71,7 +71,6 @@ $(document).ready(
       d.scrollTop(d.prop("scrollHeight"));
 
       $('.materialboxed').materialbox();
-
 
     })
 
