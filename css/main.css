@@ -1,8 +1,13 @@
 .logincontainor {
   margin-top: 25%;
+  position: relative;
 }
 
 .actionButtons {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.signInGoogle {
+  margin-left: 200px;
 }

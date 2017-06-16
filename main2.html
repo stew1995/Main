@@ -2,16 +2,43 @@
 <head>
   <title>Page Two</title>
   <link href="css/main2.css" rel="stylesheet">
-
-
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/pallete.css">
+  <link rel="stylesheet" type="text/css" href="css/checkProfile.css">
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css' />
+  <link rel='stylesheet' href='  //cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css' />
+  <!-- Google meta -->
+  <meta name="google-signin-client_id" content="110205563517-r09ko3fecqn6784utc0jcma5jbhrgum4.apps.googleusercontent.com">
 </head>
 <body>
 
 
   <div class="row">
     <div class="col s12 menuContainor dark-primary-color">
-      <a class="waves-effect waves-red btn-flat white-text" id="logoutButton">LOGOUT</a>
+      <nav>
+        <div class="nav-wrapper orange darken-2">
+          <div class="col s12">
+            <a href="#" class="waves-effect waves-red btn-flat white-text" onclick="signOut();">Sign out</a>
 
+            <a href="#!" class="breadcrumb">First</a>
+            <a href="#!" class="breadcrumb">Second</a>
+            <a href="#!" class="breadcrumb">Third</a>
+          </div>
+        </div>
+      </nav>
+      <!--
+      <a class="waves-effect waves-red btn-flat white-text" onclick="signOut();"id="logoutButton">LOGOUT</a>
+-->
         <div class="fixed-action-btn horizontal click-to-toggle eventsButtons">
          <a class="btn-floating grey">
            <i class="material-icons">menu</i>
@@ -79,7 +106,15 @@
 
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCId2gkNtL-WIjwpsVY2FDDcA3Gf5jfRRs&callback=initMap"
-    async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+      <script src="js/signInWithGoogle.js"></script>
+      <script src="js/maps.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt6bIdYqK-UOi_YjE4z1BYNAzircVfaIo&callback=initMap"
+      async defer></script>
+
+
 </body>
 </html>
