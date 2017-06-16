@@ -55,10 +55,10 @@ function onSignIn(googleUser) {
 
 function formSubmit() {
   alert("Submitted");
-
+  //GitCheck
 }
   //User data in database after send, now all i need to do is show it, but to also implement the chat feature
-  
+
 
 
 
