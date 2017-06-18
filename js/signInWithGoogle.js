@@ -7,6 +7,15 @@ var auth2;
 
 function onSignIn(googleUser) {
 
+
+
+
+
+    //Preparing Ajax for Chat request to database
+
+
+
+
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
@@ -15,7 +24,17 @@ function onSignIn(googleUser) {
   console.log(profile.getGivenName());
   console.log(profile.getFamilyName());
 
-  $("#body").load("main2.html");
+  $("#body").load("main2.html", function() {
+
+
+            //Setting the user who is signed in
+            $("#messageUser").val(googleUser.getBasicProfile().getName());
+            Materialize.updateTextFields();
+            console.log("Field Updated");
+            $("#messageUser").hide();
+
+
+  });
   /*$("#body").load("checkProfile.html", function () {
     /*var elm = document.createElement('script');
     elm.src = "js/signInWithGoogle.js";
@@ -58,9 +77,6 @@ function onSignIn(googleUser) {
 
 })*/
 
-  $("#messageUser").val("Hello");
-
-
 }
 
 function signOut() {
@@ -73,9 +89,50 @@ function signOut() {
     });
   }
 
-
 function formSubmit() {
   alert("Submitted");
   //GitCheck
 }
+
+$(document).ready(function() {
+  $("#chatForm").submit(function(event) {
+    //Prevent default posting
+    event.preventDefault();
+
+    //Abort any pending requests
+    if(request) {
+      request.abort();
+    }
+
+    //Local variable
+    var $form = $(this);
+    //Select the cache of all fields
+    var $inputs = $form.find("input, submit");
+
+    //Serialze data
+    var serializedData = $form.serialize();
+
+    $inputs.prop("disabled", true);
+
+    //Ajax Request
+    request = $.ajax({
+      url: 'php/sendMessage.php',
+      type: 'POST'
+    })
+    .done(function() {
+      console.log("success");
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+      // Reenable the inputs
+          $inputs.prop("disabled", false);
+    });
+
+  });
+});
+
+
   //User data in database after send, now all i need to do is show it, but to also implement the chat feature
