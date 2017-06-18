@@ -60,14 +60,20 @@
 
         <div class="messageinputcontainor default-primary-color">
           <div class="messageinput">
+            <form id="chatForm">
               <div class="input-field">
-                <input id="messageinput" type="text" class="validate">
+                <input id="messageinput" name="messageInput" type="text" class="validate">
               </div>
 
-          </div>
-          <i class="small material-icons sendimage white-text" id="uploadFileImage">insert_photo</i>
+                <input id="messageUser" name="messageUser" type="text">
 
-          <a class="waves-effect waves-light btn grey sendButton"><i class="material-icons right">send</i>Send</a>
+              <i class="small material-icons sendimage white-text" id="uploadFileImage">insert_photo</i>
+              <input type="submit" name="messageSubmit" value="sendMessage" />
+            </form>
+
+
+          </div>
+
         </div>
       </div>
 

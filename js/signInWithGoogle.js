@@ -58,6 +58,7 @@ function onSignIn(googleUser) {
 
 })*/
 
+  $("#messageUser").val("Hello");
 
 
 }
