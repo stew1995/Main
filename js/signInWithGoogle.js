@@ -94,45 +94,7 @@ function formSubmit() {
   //GitCheck
 }
 
-$(document).ready(function() {
-  $("#chatForm").submit(function(event) {
-    //Prevent default posting
-    event.preventDefault();
 
-    //Abort any pending requests
-    if(request) {
-      request.abort();
-    }
-
-    //Local variable
-    var $form = $(this);
-    //Select the cache of all fields
-    var $inputs = $form.find("input, submit");
-
-    //Serialze data
-    var serializedData = $form.serialize();
-
-    $inputs.prop("disabled", true);
-
-    //Ajax Request
-    request = $.ajax({
-      url: 'php/sendMessage.php',
-      type: 'POST'
-    })
-    .done(function() {
-      console.log("success");
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
-      // Reenable the inputs
-          $inputs.prop("disabled", false);
-    });
-
-  });
-});
 
 
   //User data in database after send, now all i need to do is show it, but to also implement the chat feature

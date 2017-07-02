@@ -1,4 +1,4 @@
-//Variable to hold the request
+/*//Variable to hold the request
 var request;
 
 $("#chatForm").submit(function(event) {
@@ -21,7 +21,7 @@ $("#chatForm").submit(function(event) {
   $inputs.prop("disabled", true);
 
   //Ajax Request
-  request = $.$.ajax({
+  request = $.ajax({
     url: 'php/sendMessage.php',
     type: 'POST',
     data: serializedData
@@ -39,3 +39,52 @@ $("#chatForm").submit(function(event) {
   });
 
 });
+*/
+//Using W3Schools to help
+//this needs to be looked at for outputting the chat
+function showChat() {
+  if(str == "") {
+    //This is the chat window
+    $('.messagecontainor').val("");
+    //document.getElementById('textHint').innerHTML = "";
+    return;
+  } else {
+    if (window.XMLHttpRequest) {
+      //Firefox chrome safafi
+      xmlhttp = new XMLHttpRequest();
+    } else {
+      //IE
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200) {
+        $('.messagecontainor').val() = this.responseText;
+        //document.getElementById('textHint').innerHTML = this.responseText;
+      }
+    };
+
+    xmlhttp.open('GET', 'getuser.php',true);
+    xmlhttp.send();
+  }
+}
+function sendChat() {
+    if (window.XMLHttpRequest) {
+      //Firefox chrome safafi
+      xmlhttp = new XMLHttpRequest();
+    } else {
+      //IE
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200) {
+        $('.messagecontainor').val() = this.responseText;
+        //document.getElementById('textHint').innerHTML = this.responseText;
+      }
+    };
+
+    xmlhttp.open('GET', 'php/sendMessage.php',true);
+    xmlhttp.send();
+
+}

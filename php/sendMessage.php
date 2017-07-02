@@ -15,13 +15,13 @@ if($_POST["messageSubmit"]) {
 
   if($user != "" && $message != "") {
     //Send to the database
-    $sql = "insert into message (user, message, timestamp) values ('".$user."', '".$message."')"
+    $sql = "insert into message (user, message) values ('".$user."', '".$message."')";
     if(mysqli_query($conn, $sql)) {
       echo "complete";
     } else {
       echo "Failed";
     }
-  }
+  } 
 
 }
 
