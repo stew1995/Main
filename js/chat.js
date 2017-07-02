@@ -40,9 +40,21 @@ $("#chatForm").submit(function(event) {
 
 });
 */
+
+$(document).ready(function() {
+  $("#messageSubmit").click(function() {
+    sendChatText();
+    $("#messageinput").val("");
+  });
+  //startChat();
+});
+
+/*function startChat(){
+  setInterval( function() { getChatText(); }, 2000);
+}/*
 //Using W3Schools to help
 //this needs to be looked at for outputting the chat
-function showChat() {
+/*function showChat() {
   if(str == "") {
     //This is the chat window
     $('.messagecontainor').val("");
@@ -67,24 +79,14 @@ function showChat() {
     xmlhttp.open('GET', 'getuser.php',true);
     xmlhttp.send();
   }
-}
-function sendChat() {
-    if (window.XMLHttpRequest) {
-      //Firefox chrome safafi
-      xmlhttp = new XMLHttpRequest();
-    } else {
-      //IE
-      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
+}*/
 
-    xmlhttp.onreadystatechange = function() {
-      if(this.readyState == 4 && this.status == 200) {
-        $('.messagecontainor').val() = this.responseText;
-        //document.getElementById('textHint').innerHTML = this.responseText;
-      }
-    };
-
-    xmlhttp.open('GET', 'php/sendMessage.php',true);
-    xmlhttp.send();
-
+function sendChatText() {
+  var chatInput = $('#messageinput').val();
+  if(chatInput != "") {
+    $.ajax({
+      url: 'php/sendMessage.php?message='+encodeURIComponent(chatInput),
+      type: 'GET'
+    });
+  }
 }

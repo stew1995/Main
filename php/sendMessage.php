@@ -1,5 +1,5 @@
 <?php
-
+$message = intval($_GET['message']);
 require 'database.php';
 
 
@@ -10,20 +10,20 @@ if($_POST["messageSubmit"]) {
 
 
   $user = $_POST["user"];
-  $message = $_POST["message"];
+
 
 
   if($user != "" && $message != "") {
     //Send to the database
-    $sql = "insert into message (user, message) values ('".$user."', '".$message."')";
+    $sql = "insert into user (user, message) values ('".$user."', '".$message."')";
+
     if(mysqli_query($conn, $sql)) {
-      echo "complete";
+      echo "<script>console.log('complete')</script>";
     } else {
-      echo "Failed";
+      echo "<script>console.log('failed')</script>";
     }
-  } 
-
+  }
 }
-
+mysqli_close($conn);
 
  ?>
